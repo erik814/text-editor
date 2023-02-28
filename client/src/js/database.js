@@ -40,6 +40,15 @@ export const getDb = async () => {
   
   // LINES 1-3 HERE
 
+    // First, create a variable, and set it to asyncronously await the opening of the database. Replace the items in all caps
+    const DB_VAR = await openDB('DB_NAME', 1);
+
+    // Now create a variable for the transaction
+    const TX_VAR = jateDb.readonly('DB_NAME', 'readwrite');
+  
+    // Now create a variable for the store
+    const STORE_VAR = tx.objectStore('DB_NAME');
+
   // Leave the rest as-is
   const request = store.get(1);
   const result = await request;
